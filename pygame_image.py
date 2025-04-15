@@ -14,17 +14,26 @@ def main():
     bg2_img = pg.transform.flip(bg2_img,True,False)#練習８
     kk_img = pg.image.load("fig/3.png")#練習１
     kk_img = pg.transform.flip(kk_img,True,False)#ren2
+    kk_rct = kk_img.get_rect()#ren10-1
+    kk_rct.center = 300,200#ren10-2
     tmr = 0
     while True:
         for event in pg.event.get():
             if event.type == pg.QUIT: return
-
-        x = tmr % 3200
+        key_list = pg.key.get_pressed()#ren10-3
+        if key_list[pg.K_UP]:
+            kk_rct.move_ip((0,-1))
+        if key_list[pg.K_DOWN]:
+            kk_rct.move_ip((0,1))
+        if key_list[pg.K_LEFT]:
+            kk_rct.move_ip((-1,0))
+        if key_list[pg.K_RIGHT]:
+            kk_rct.move_ip((1,0))
+        x = tmr % 3200#練習９
         screen.blit(bg_img, [-x, 0])#練習６
         screen.blit(bg2_img, [-x+1600, 0])#練習７
         screen.blit(bg_img, [-x+3200, 0])
-        screen.blit(kk_img, [300, 200])#ren4
-        
+        screen.blit(kk_img,kk_rct)#ren4
         pg.display.update()
         tmr += 1       
         clock.tick(200)
