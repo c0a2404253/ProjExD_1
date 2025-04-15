@@ -11,7 +11,7 @@ def main():
     clock  = pg.time.Clock()
     bg_img = pg.image.load("fig/pg_bg.jpg")
     bg2_img = pg.image.load("fig/pg_bg.jpg")
-    bg2_img = pg.transform.flip(bg2_img,True,False)
+    bg2_img = pg.transform.flip(bg2_img,True,False)#練習８
     kk_img = pg.image.load("fig/3.png")#練習１
     kk_img = pg.transform.flip(kk_img,True,False)#ren2
     tmr = 0
